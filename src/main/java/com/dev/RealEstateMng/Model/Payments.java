@@ -25,9 +25,13 @@ public class Payments {
     @JoinColumn(name = "id" , nullable = false)
     private Rentals rental;
     public enum PaymentsMethods{
-
+        Cash,
+        BankTransfer,
+        CreditCard
     }
     public enum Status{
-
+        Pending,
+        Completed,
+        Failed
     }
 }

@@ -1,0 +1,33 @@
+package com.dev.RealEstateMng.Model;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+@Entity
+@Getter
+@Setter
+@Table( name = "payments")
+public class Payments {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private BigDecimal amount;
+    private Date paymentsDate ;
+    private PaymentsMethods paymentsMethds;
+    private Status status;
+
+    @ManyToOne
+    @JoinColumn(name = "id" , nullable = false)
+    private Rentals rental;
+    public enum PaymentsMethods{
+
+    }
+    public enum Status{
+
+    }
+}

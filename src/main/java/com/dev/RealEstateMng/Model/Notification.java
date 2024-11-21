@@ -16,7 +16,7 @@ public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long notification_id;
     private String message;
     private short isRead;
 

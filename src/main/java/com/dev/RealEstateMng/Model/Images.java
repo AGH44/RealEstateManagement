@@ -16,11 +16,14 @@ public class Images {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long image_id;
     @Column(name="image_url")
     private String image_url;
 
-    private int propertyId;
+
+    @ManyToOne
+    @JoinColumn(name = "properties_id", nullable = false)
+    private Properties properties;
 
     @CreationTimestamp
     @Column(updatable = false)

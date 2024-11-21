@@ -17,7 +17,7 @@ public class Rentals {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long rentals_id;
     private Date startDate ;
     private Date endDate;
     private BigDecimal monthlyRent;
@@ -27,11 +27,11 @@ public class Rentals {
     private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "id" , nullable = false)
+    @JoinColumn(name = "user_id" , nullable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "id" , nullable = false)
+    @JoinColumn(name = "properties_id" , nullable = false)
     private Properties property;
 
     @Enumerated(EnumType.STRING)

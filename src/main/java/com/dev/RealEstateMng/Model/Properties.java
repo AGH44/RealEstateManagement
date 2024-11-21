@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,11 +19,14 @@ public class Properties {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long properties_id;
 
     @ManyToOne
-    @JoinColumn(name = "id",nullable = false)
+    @JoinColumn(name = "user_id",nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "properties",cascade = CascadeType.ALL)
+    private List<Images> imagesList = new ArrayList<>();
 
     private String description;
     private String title;
@@ -44,7 +48,7 @@ public class Properties {
     private List<Reviews> reviews;
 
     @OneToMany(mappedBy = "properties", cascade = CascadeType.ALL)
-    private List<ServiceRequest> request;
+    private List<ServiceRequest> request = new ArrayList<>();
 
     public enum Type{
         Apartment

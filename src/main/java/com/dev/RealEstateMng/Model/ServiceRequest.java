@@ -16,14 +16,14 @@ public class ServiceRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long request_id;
 
     @ManyToOne
-    @JoinColumn(name = "id" , nullable = false)
-    private Properties propertie;
+    @JoinColumn(name = "properties_id" , nullable = false)
+    private Properties properties;
 
     @ManyToOne
-    @JoinColumn(name = "id" , nullable = false)
+    @JoinColumn(name = "user_id" , nullable = false)
     private User user;
 
     private String description;

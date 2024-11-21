@@ -15,7 +15,8 @@ public class Payments {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long payments_id;
+
     private BigDecimal amount;
     private Date paymentsDate ;
     private PaymentsMethods paymentsMethds;
@@ -24,8 +25,9 @@ public class Payments {
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "id" , nullable = false)
+    @JoinColumn(name = "rentals_id" , nullable = false)
     private Rentals rental;
+
     public enum PaymentsMethods{
         Cash,
         BankTransfer,

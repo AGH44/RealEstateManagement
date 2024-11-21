@@ -24,8 +24,20 @@ public class User {
     private String password;
     private String phone;
 
-    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "Users" , cascade = CascadeType.ALL)
     private List<Notification> notifications;
+
+    @OneToMany(mappedBy = "Users", cascade = CascadeType.ALL)
+    private List<Rentals> rentals;
+
+    @OneToMany(mappedBy = "Users",cascade =CascadeType.ALL)
+    private List<Properties> properties;
+
+    @OneToMany(mappedBy = "Users", cascade = CascadeType.ALL)
+    private List<Reviews> reviews;
+
+    @OneToMany(mappedBy = "Users", cascade = CascadeType.ALL)
+    private List<ServiceRequest> request;
 
     @CreationTimestamp
     @Column(updatable = false)
